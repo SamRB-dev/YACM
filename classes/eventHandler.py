@@ -36,7 +36,6 @@ class eventHanlder:
     def __CtrlReleased(self,key) -> None:
         try:
             self.__isCtrlPressed = False
-            print("CTRL Released")
         except Exception as error:
             self.__logging.exception(error)
 
