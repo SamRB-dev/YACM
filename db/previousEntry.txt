@@ -1,0 +1,6 @@
+pub fn writePreviousEntry(path: &Path, contentString: String) -> () {
+    let mut contentStorage = File::create(path).expect("Error Occured");
+    contentStorage
+        .write_all(contentString.as_bytes())
+        .expect("Write failed");
+}
