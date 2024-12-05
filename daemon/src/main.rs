@@ -12,13 +12,14 @@ use std::path::Path;
 fn main() {
     let mut ctx = ClipboardContext::new().unwrap();
     let mut content: String = String::new();
-    let mut contentNewline: String = String::new();
+    // let mut contentNewline: String = String::new();
     let previousEntryPath: &Path = Path::new("../db/previousEntry.txt");
     loop {
         content = ctx.get_contents().unwrap();
-        contentNewline = content.clone() + "\n";
+        // contentNewline = content.clone() + "\n";
         if (content != FileHandler::previousEntry(previousEntryPath)) {
-            FileHandler::writePreviousEntry(previousEntryPath, content);
+            FileHandler::writePreviousEntry(previousEntryPath, content.clone());
+            FileHandler::writeEntryToPyJson(Path::new("../db/db.json"),content);
         }
     }
 }
