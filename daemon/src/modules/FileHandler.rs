@@ -1,5 +1,6 @@
 // Std modules
 use std::fs::File;
+use std::io;
 use std::io::Read;
 use std::io::Write;
 use std::path::Path;
@@ -13,11 +14,11 @@ use pyo3::types::{IntoPyDict, PyModule};
 use chrono::prelude::*;
 
 // Function that returns temporary previous entry
-pub fn previousEntry(path: &Path) -> String {
-    let mut openFile = File::open(path).unwrap();
+pub fn previousEntry(path: &Path) -> Result<String, io::Error> {
+    let mut openFile = File::open(path)?;
     let mut dataFromFile: String = String::new();
-    openFile.read_to_string(&mut dataFromFile).unwrap();
-    return dataFromFile;
+    openFile.read_to_string(&mut dataFromFile)?;
+    Ok(dataFromFile)
 }
 
 pub fn writePreviousEntry(path: &Path, contentString: String) -> () {
