@@ -1,6 +1,6 @@
 venv
 __pycache__
-*.log
+/log/app.log
 .venv
 /daemon/target
 /daemon/build/
