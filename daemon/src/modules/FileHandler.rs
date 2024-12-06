@@ -35,7 +35,16 @@ pub fn writeEntryToPyJson(path: &Path, contentString: String) -> () {
         let code = c_str!(
             "
 import json
+import logging
 
+# init logger
+logging.basicConfig(
+            filename='logs/app.log',
+            filemode='a',
+            format='%(asctime)s:%(levelname)s:%(name)s:%(message)s',
+            datefmt=\"%d-%m-%Y %H:%M\"
+)
+logger = logging.getLogger()
 def write_json(path: str, date: str, content: dict) -> None:
     try:
         with open(path, mode='r') as file:
@@ -44,7 +53,7 @@ def write_json(path: str, date: str, content: dict) -> None:
         with open(path, mode='w') as update_file:
             json.dump(file_data, update_file, indent=4)
     except Exception as error:
-        print(error)
+        logger.exception(error)
 "
         );
 
