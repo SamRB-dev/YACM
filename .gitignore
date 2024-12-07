@@ -5,3 +5,4 @@ __pycache__
 /daemon/target
 /daemon/build/
 /daemon/logs/app.log
+/db
