@@ -9,11 +9,13 @@ Yet Another Clipboard Manager or YACM is a simple tool that aims to be a cli bas
 3. Export history of a specific date as csv
 4. Delete previous content
 
-# Development Stage 1
+# Development Goals
 
-- [x] Build Daemon
+## [x] Build Daemon 
 check on the os clipboard and each time new content is available, save the content on json/txt file
-- [ ] Systemd Service
+## [ ] Systemd Service
+## [ ] TUI
+
 
 ## Build daemon
 
