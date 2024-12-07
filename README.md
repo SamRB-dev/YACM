@@ -15,7 +15,7 @@ Yet Another Clipboard Manager or YACM is a simple tool that aims to be a cli bas
 
 - [x] Build Daemon (Rust)
 - [ ] Systemd Service (for Systemd)
-- [ ] Terminal User Interface
+- [ ] Terminal User Interface (Python)
 
 ## Build daemon
 
