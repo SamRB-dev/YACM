@@ -13,6 +13,9 @@ use pyo3::types::{IntoPyDict, PyModule};
 // chrono
 use chrono::prelude::*;
 
+// tokio
+use tokio;
+
 // Function that returns temporary previous entry
 pub fn previousEntry(path: &Path) -> Result<String, io::Error> {
     let mut openFile = File::open(path)?;
@@ -28,7 +31,7 @@ pub fn writePreviousEntry(path: &Path, contentString: String) -> () {
         .expect("Write failed");
 }
 
-pub fn writeEntryToPyJson(path: &Path, contentString: String) -> () {
+pub async fn writeEntryToPyJson(path: &Path, contentString: String) -> () {
     let time: String = Local::now().format("%d-%m-%Y~%H:%M:%S").to_string();
 
     Python::with_gil(|py| {

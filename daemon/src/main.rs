@@ -8,8 +8,10 @@ mod modules;
 use copypasta::{ClipboardContext, ClipboardProvider};
 use modules::FileHandler;
 use std::path::Path;
+use tokio;
 
-fn main(){
+#[tokio::main]
+async fn main(){
     let mut ctx = ClipboardContext::new().unwrap();
     let mut content: String = String::new();
     // let mut contentNewline: String = String::new();
@@ -19,7 +21,7 @@ fn main(){
         // contentNewline = content.clone() + "\n";
         if content != FileHandler::previousEntry(previous_entry_path).unwrap() {
             FileHandler::writePreviousEntry(previous_entry_path, content.clone());
-            FileHandler::writeEntryToPyJson(Path::new("../db/db.json"),content);
+            FileHandler::writeEntryToPyJson(Path::new("../db/db.json"),content).await;
         }
     }
 }

@@ -6,4 +6,6 @@ edition = "2021"
 [dependencies]
 chrono = "0.4.38"
 copypasta = "0.10.1"
+full = "0.3.0"
 pyo3 = { version = "0.23.3", features = ["auto-initialize"] }
+tokio = { version = "1.42.0", features = ["full"] }

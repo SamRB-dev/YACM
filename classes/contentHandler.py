@@ -1,19 +1,25 @@
 # -*- coding: utf-8 -*-
-import pyperclip, datetime
+import json, logging
+import polars as pl
 
 class contentHanlder:
     def __init__(self) -> None:
-        self.__contentType:list = ["url", "file", "text"]
-        self.pclip:object = pyperclip
-    
-    def defineContentType__(self) -> str:
-        if self.pclip.paste().startswith("http://") or self.pclip.paste().startswith("https://"):
+        self.__contentType:list = ["url", "directory", "text", "file"]
+        self.__path: str = "../db/db.json"
+    def ReadJson(self) -> dict:
+        try:
+            with open(self.__path, mode="r") as file:
+                jsonFileContent = json.load(file)
+                return jsonFileContent
+        except Exception as error:
+            print(error)  
+    def defineContentType__(self, data: str) -> str:
+        if data.startswith("http://") or data.startswith("https://"):
             return self.__contentType[0]
-        elif self.pclip.paste().startswith("file:///"):
+        elif data.startswith("file:///") and data.endswith("/"):
             return self.__contentType[1]
         else:
             return self.__contentType[2]
             
 if __name__ == "__main__":
-    handler = contentHanlder()
-    print(handler.defineContentType__())
+    print(contentHanlder().defineContentType__("file:///x/"))
