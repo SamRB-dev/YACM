@@ -1,15 +1,27 @@
-from textual.app import App, ComposeResult
-from textual.widgets import Welcome
+from textual.app import App
+from textual.containers import Container
+from textual.widget import Widget
+from textual.reactive import Reactive
+from textual.app import ComposeResult
 
+class ResponsiveWidget(Container):
+    css_class = "responsive-widget"
+    
+    width = Reactive(1)
+    height = Reactive(1)
 
-class WelcomeApp(App):
+    def on_resize(self, event):
+        self.width = self.size.width
+        self.height = self.size.height
+        self.refresh()
+
+    def render(self):
+        return f"Width: {self.width}, Height: {self.height}"
+
+class MyApp(App):
+
     def compose(self) -> ComposeResult:
-        yield Welcome()
-
-    def on_button_pressed(self) -> None:
-        self.exit()
-
+        yield ResponsiveWidget()
 
 if __name__ == "__main__":
-    app = WelcomeApp()
-    app.run()
+    MyApp().run()

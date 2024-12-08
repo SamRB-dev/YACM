@@ -1,3 +1,24 @@
 Header {
     background: darkblue;
 }
+
+.AppFooter {
+    layout: horizontal;
+    background: darkblue;
+    color: white;
+    height: 8%;
+    padding: 1;
+    dock: bottom;
+}
+
+.github {
+    width: 50%;
+    text-align: left;
+    color: white;
+}
+
+.version {
+    width: 50%;
+    text-align: right;
+    color: white;
+}
