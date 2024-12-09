@@ -25,3 +25,5 @@ Tested on WSL on windows and with the daemon running on background, it can fetch
 ```shell
 cargo build -r --target-dir build
 ```
+
+

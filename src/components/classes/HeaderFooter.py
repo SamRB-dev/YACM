@@ -28,7 +28,7 @@ class AppFooter(Container):
         # )
         yield Static("Github", classes="github")
         yield Static("v1.0", classes="version")
-    def _on_compose(self, event):
+    def _on_compose(self):
         self.classes = "AppFooter"
     
         
