@@ -1,9 +1,7 @@
 venv
 __pycache__
-/log/app.log
 .venv
 /daemon/target
 /daemon/build/
 **/app.log
 /db
-previousEntry.txt
