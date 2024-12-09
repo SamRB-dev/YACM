@@ -3,5 +3,5 @@ __pycache__
 .venv
 /daemon/target
 /daemon/build/
-**/app.log
+
 /db
