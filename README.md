@@ -11,11 +11,14 @@ Yet Another Clipboard Manager or YACM is a simple tool that aims to be a cli bas
 
 ## Development Goals
 
-### Platform: Linux
+### Platform: Linux, WSL (windows)
 
 - [x] Build Daemon (Rust)
 - [ ] Systemd Service (for Systemd)
 - [ ] Terminal User Interface (Python)
+
+## Current Status
+Tested on WSL on windows and with the daemon running on background, it can fetch the contents from windows clipboard buffer directly.
 
 ## Build daemon
 

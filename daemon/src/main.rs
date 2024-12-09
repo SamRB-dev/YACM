@@ -21,7 +21,7 @@ async fn main(){
         // contentNewline = content.clone() + "\n";
         if content != FileHandler::previousEntry(previous_entry_path).unwrap() {
             FileHandler::writePreviousEntry(previous_entry_path, content.clone());
-            FileHandler::writeEntryToPyJson(Path::new("../db/db.json"),content).await;
+            let _ = FileHandler::writeEntryToPyJson(Path::new("../db/db.json"),content).await;
         }
     }
 }

@@ -31,7 +31,7 @@ pub fn writePreviousEntry(path: &Path, contentString: String) -> () {
         .expect("Write failed");
 }
 
-pub async fn writeEntryToPyJson(path: &Path, contentString: String) -> () {
+pub async fn writeEntryToPyJson(path: &Path, contentString: String) -> Result<(), PyErr> {
     let time: String = Local::now().format("%d-%m-%Y~%H:%M:%S").to_string();
 
     Python::with_gil(|py| {
@@ -42,7 +42,7 @@ import logging
 
 # init logger
 logging.basicConfig(
-            filename='logs/app.log',
+            filename='src/logs/app.log',
             filemode='a',
             format='%(asctime)s:%(levelname)s:%(name)s:%(message)s',
             datefmt=\"%d-%m-%Y %H:%M\"
@@ -73,4 +73,5 @@ def write_json(path: str, date: str, content: dict) -> None:
             .call1((path.to_str().unwrap(), time.as_str(), jsonData))
             .unwrap();
     });
+    Ok(())
 }

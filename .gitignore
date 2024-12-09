@@ -4,4 +4,4 @@ __pycache__
 /daemon/target
 /daemon/build/
 app.log
-/db
+db
