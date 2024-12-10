@@ -1,6 +1,6 @@
 # YACM (Alpha)
 
-Yet Another Clipboard Manager or YACM is a simple tool that aims to be a cli based tool to managing clipboard history written in **Python** and **Rust** for **Linux**.
+Yet Another Clipboard Manager or YACM is an open source tool for managing clipboard history written in **Python** and **Rust** for **Linux**.
 
 ## Features (ToDo)
 
